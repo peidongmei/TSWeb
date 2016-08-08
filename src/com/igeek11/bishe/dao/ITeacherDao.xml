@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.ITeacherDao">
+	<cache />
+	<!-- 教师登录 -->
+	<select id="tealogin" parameterType="Teacher" resultType="Teacher">
+		select
+		teachnickname,teachname ,teachno,teachsubjectnum from teacher where
+		teachnickname= #{teachnickname} and teachpwd= #{teachpwd}
+	</select>
+	<!-- 教师信息列表查询 -->
+	<select id="queryteacher" parameterType="Teacher" resultType="Teacher">
+		select teachno,teachname,teachpermlevel,teachsubjectnum from teacher
+	</select>
+	<!-- 教师信息更新1 -->
+	<select id="teacherUpdate1" parameterType="Teacher" resultType="Teacher">
+		select teachno,teachname,teachpermlevel,teachsubjectnum from teacher
+		where teachno= #{teachno}
+	</select>
+	<!-- 教师信息更新2 -->
+	<update id="teacherUpdate2" parameterType="Teacher">
+		update teacher
+		set teachpermlevel= #{teachpermlevel}, teachsubjectnum =
+		#{teachsubjectnum} where teachno= #{teachno}
+	</update>
+	<!-- 删除一行教师 -->
+	<delete id="teacherdelete">
+		delete from teacher where teachno= #{teachno}
+	</delete>
+	<!--教师头像更新 -->
+	<update id="teacherphoto" parameterType="Teacher">
+		update teacher set teachphurl=#{teachphurl}
+		where teachno= #{teachno}
+	</update>
+	<!--教师自我更新1 -->
+	<select id="teacherselfUpdate1" parameterType="int" resultType="Teacher">
+		select
+		teachname,teachsex,teachbirth,terminaldegree,teachresume,resdirection,teachtitle,teachtreatise,teachprize,teachmail,teachphurl
+		from teacher where teachno= #{teachno}
+	</select>
+	<!-- 教师自我更新2 -->
+	<update id="teacherselfUpdate2" parameterType="Teacher">
+		update teacher
+		set teachname=#{teachname},teachsex=#{teachsex},teachbirth=
+		#{teachbirth},terminaldegree= #{terminaldegree},
+		teachresume= #{teachresume},resdirection= #{resdirection},teachtitle=
+		#{teachtitle},teachtreatise= #{teachtreatise},
+		teachprize= #{teachprize},teachmail= #{teachmail}
+		where teachno= #{teachno}
+	</update>
+	<!--教师自我修改密码1 -->
+	<select id="teacherselfPwd1" parameterType="int" resultType="Teacher">
+		select teachnickname,teachpwd from teacher where teachno= #{teachno}
+	</select>
+	<!-- 教师自我修改密码2 -->
+	<update id="teacherselfPwd2" parameterType="Teacher">
+		update
+		teacher set teachnickname = #{teachnickname},teachpwd = #{teachpwd}
+		where teachno= #{teachno}
+	</update>
+
+	<!--管理员增加一个教师 -->
+	<insert id="teacherAdd" parameterType="Teacher">
+		insert into teacher
+		(teachno,teachnickname,teachpwd,teachname,teachsex,teachbirth,
+		terminaldegree,teachresume,resdirection,teachtitle,teachtreatise,teachprize,teachmail,
+		teachphurl,teachpermlevel,teachsubjectnum)
+		values
+		(seq_teachno.nextval,#{teachnickname},#{teachpwd},#{teachname},#{teachsex},
+		#{teachbirth},#{terminaldegree},#{teachresume},#{resdirection},#{teachtitle},
+		#{teachtreatise},#{teachprize},#{teachmail},#{teachphurl},#{teachpermlevel},#{teachsubjectnum})
+	</insert>
+	<!-- 教师姓名列表显示 -->
+	<select id="teacherDisplayList" parameterType="Teacher"
+		resultType="Teacher">
+		select teachno,teachname from teacher
+	</select>
+	<!-- 教师信息展示 -->
+	<select id="teacherDisplay" parameterType="Teacher" resultType="Teacher">
+		select teachno,teachname,teachsex,teachbirth,
+		terminaldegree,teachresume,resdirection,teachtitle,teachtreatise,teachprize,teachmail,
+		teachphurl,teachsubjectnum from teacher where teachno= #{teachno}
+	</select>
+
+	<!-- 教师姓名列表用以提交问题 -->
+	<select id="questionteachers" resultType="Teacher">
+		select teachno,teachname from teacher
+	</select>
+	<!-- 教师姓名列表在首页显示 -->
+	<select id="mainteacherList" resultType="Teacher">
+		select teachno,teachname from teacher
+	</select>
+
+</mapper>

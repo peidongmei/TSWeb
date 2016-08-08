@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.ISuperDao">
+	<cache />
+
+	<select id="login" parameterType="Super" resultType="Super">
+		select
+		superno,supername from super where supername=#{supername} and
+		superpwd=#{superpwd}
+	</select>
+
+	<!--管理员用户名密码查询 -->
+	<select id="superUpdate1" parameterType="Super" resultType="Super">
+		select superno,supername,superpwd from super where superno= #{superno}
+	</select>
+	<!-- 管理员用户名密码更新2 -->
+	<update id="superUpdate2" parameterType="Super">
+		update super
+		set supername= #{supername}, superpwd= #{superpwd} where superno=
+		#{superno}
+	</update>
+
+
+</mapper>

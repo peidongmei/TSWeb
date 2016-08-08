@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.milestone.internms.dao.IKebiaoDAO">
+
+	<cache />
+	<insert id="saveKebiao" parameterType="Kebiao">
+		insert into kebiao
+		(id,jxrwId,zymc,xn,xq,kcdm,kcmc,jszgh,jsxm,skdd,skzhou,skxingqi,skjie,bjmc)
+		values
+		(kebiao_seq.nextval,#{jxrwId},#{zymc,jdbcType=VARCHAR},#{xn,jdbcType=VARCHAR},#{xq,jdbcType=INTEGER},#{kcdm,jdbcType=VARCHAR},#{kcmc,jdbcType=VARCHAR},#{jszgh,jdbcType=VARCHAR},#{jsxm,jdbcType=VARCHAR},#{skdd,jdbcType=VARCHAR},#{skzhou,jdbcType=INTEGER},#{skxingqi,jdbcType=VARCHAR},#{skjie,jdbcType=INTEGER},#{bjmc,jdbcType=VARCHAR})
+	</insert>
+	<select id="findBanjiZhoukebiao" resultType="Kebiao">
+		select
+		id,kcmc,jsxm,skdd,skzhou,skxingqi,skjie,bjmc
+		from kebiao
+		where
+		bjmc=#{param1,jdbcType=VARCHAR} and skzhou=#{param2,jdbcType=INTEGER}
+	</select>
+	<select id="findBanjiXueqikebiao" resultType="Kebiao">
+		select
+		id,kcmc,jsxm,skdd,skzhou,skxingqi,skjie,bjmc
+		from kebiao
+		where
+		bjmc=#{param1,jdbcType=VARCHAR}
+	</select>
+	<select id="findjiaoshiXueqiKebiao" resultType="Kebiao">
+		select
+		id,skzhou,skxingqi,skjie,skdd,kcmc,bjmc from KEBIAO t
+		where jszgh=#{param1,jdbcType=VARCHAR}
+		group by
+		skzhou,skxingqi,skjie,skdd,kcmc,id,bjmc
+	</select>
+	<select id="skddKebiao" resultType="Kebiao">
+		select
+		id,skzhou,skxingqi,skjie,skdd,kcmc,jsxm from KEBIAO t
+		where skdd=#{param1,jdbcType=VARCHAR}
+		group by
+		skzhou,skxingqi,skjie,skdd,kcmc,id,jsxm
+	</select>
+	<select id="findjiaoshiXueqiKebiaoCalendar" resultType="Kebiao">
+		select
+		id,bjmc,skzhou,skxingqi,skjie,skdd,kcmc from KEBIAO t
+		where jszgh=#{param1,jdbcType=VARCHAR}
+		group by
+		skzhou,skxingqi,skjie,skdd,kcmc,id,bjmc
+	</select>
+
+	<delete id="deleteKebiao">
+		delete from kebiao
+		where jxrwid=#{param1}
+		and actualdate(#{param2},skzhou,skxingqi) &lt;= #{param4}
+		and actualdate(#{param2},skzhou,skxingqi) &gt;= #{param3}
+	</delete>
+
+	<select id="findBjmcInSameLession" resultType="string">
+		select distinct
+		bjmc from JXRWB t where sksj=#{param1} and skdd=#{param2}
+	</select>
+
+	<update id="updateKebiao">
+		update kebiao set
+		skzhou=#{param2},skxingqi=#{param3},skjie=#{param4},skdd=#{param5}
+		where id=#{param1}
+	</update>
+
+</mapper>

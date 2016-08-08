@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.INoticeDao">
+	<cache />
+
+	<!-- noticeno noticetitle noticedetail noticedate noticesupno -->
+
+	<!-- 增加一条公告 -->
+	<insert id="noticeAdd" parameterType="Notice">
+		insert into notice
+		(noticeno,noticetitle,noticedetail,noticedate,noticesupno)
+		values(seq_noticeno.nextval,#{noticetitle},#{noticedetail},sysdate,#{noticesupno})
+	</insert>
+	<!--公告列表查询 -->
+	<select id="noticeList" parameterType="Notice" resultType="Notice">
+		select noticeno,noticetitle,noticedate from notice
+	</select>
+
+	<!-- 公告信息展示 -->
+	<select id="noticeDiaplay" parameterType="Notice" resultType="Notice">
+		select noticeno,noticetitle,noticedate,noticedetail from notice where
+		noticeno= #{noticeno}
+	</select>
+	<!-- 删除一行公告 -->
+	<delete id="noticedelete">
+		delete from notice where noticeno= #{noticeno}
+	</delete>
+
+	<!-- 首页显示新闻列表 -->
+	<select id="mainnoticeList" resultType="Notice">
+		select noticeno,noticetitle, noticedate from notice
+	</select>
+</mapper>

@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.page {
+	width: 1000px;
+	margin: 5px auto;
+}
+
+.clearFix {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head {
+	width: 1000px;
+	height: 100px;
+}
+
+.head1 {
+	width: 700px;
+	height: 100px;
+	float: left;
+}
+
+.head1 span {
+	position: relative;
+	bottom: 30px;
+	right: -5px;
+}
+
+.head2 {
+	width: 300px;
+	height: 100px;
+	float: right;
+}
+
+.head2 span {
+	position: relative;
+	bottom: -80px;
+	right: -180px;
+}
+
+.head1 img {width：80px;
+	height: 80px;
+	margin-left: 100px;
+	border-right: solid 2px #bbbbbb;
+}
+
+.body {
+	width: 1000px;
+	margin-top: 10px
+}
+
+.left {
+	width: 500px;
+	float: left;
+}
+
+.right {
+	width: 500px;
+	float: right;
+}
+
+.item {
+	width: 450px;
+	height: 50px;
+	padding-top: 20px;
+	margin-left: 100px;
+}
+
+.body .left .item .label {
+	width: 300px;
+	height: 30px;
+}
+
+.body .right img {
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	margin-left: 100px;
+	margin-top: 100px;
+}
+
+.item1 input {
+	width: 300px;
+	height: 40px;
+	margin-top: 20px;
+	margin-left: 100px;
+	background: red;
+}
+
+.item input {
+	width: 200px;
+	height: 30px;
+}
+
+.item11 {
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+select {
+	margin-top: 20px;
+}

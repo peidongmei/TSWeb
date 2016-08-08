@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.IQuestionDao">
+	<cache />
+	<!-- queno quetitle questuno queteano quedetail quedate -->
+	<!--学生提交一个问题 -->
+	<insert id="studentUpquestion" parameterType="Question">
+		insert into question
+		(queno,quetitle,questuno,queteachno,quedetail,quedate)
+		values
+		(seq_questionno.nextval,#{quetitle},#{questuno},#{queteachno},#{quedetail},sysdate)
+	</insert>
+
+	<!-- 问题信息列表查询 -->
+	<select id="queryquestion" parameterType="Question" resultType="Question">
+		select queno ,quetitle,questuno,quedate from question where
+		queteachno=#{queteachno}
+	</select>
+
+	<!-- 问题提交1 -->
+	<select id="questionUpdate1" parameterType="Question"
+		resultType="Question">
+		select queno,questuno,quetitle,quedetail from question where queno=#{queno}
+	</select>
+	<!-- 删除一行问题 -->
+	<delete id="deleteQuestion">
+		delete from question where queno= #{queno}
+	</delete>
+
+
+</mapper>

@@ -1,0 +1,50 @@
+/*样式重置*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.wrap {
+	border: 1px solid black;
+	width: 1200px;
+	height: 700px;
+	margin: 60px auto;
+}
+
+.clearFix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.wrap .top {
+	padding-top: 40px;
+	border: solid 1px black;
+	float: top;
+	width: 1000px;
+	height: 60px;
+	margin-top: 30px;
+	margin-left: 100px;
+}
+
+.wrap .left a {
+	width: 260px;
+	height: 30px;
+}
+
+.wrap .bottom {
+	float: bottom;
+	width: 1000px;
+	height: 550px;
+	border: solid 1px black;
+	margin-left: 100px;
+	margin-bottom: 60px;
+}

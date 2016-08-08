@@ -1,0 +1,200 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.head {
+	width: 1349px;
+	height: 80px;
+}
+
+.head .xuebi {
+	float: left;
+	margin-left: 185px;
+	margin-top: 17px;
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	background: url(logo.gif);
+}
+
+.head span {
+	position: relative;
+	left: 28px;
+	line-height: 80px;
+	font-family: "微软雅黑";
+	font-size: 24px;
+}
+
+.content {
+	width: 1349px;
+	height: 475px;
+	border: solid 1px aquamarine;
+	background-color: white;
+}
+
+.content .post {
+	position: relative;
+	left: -150px;
+	height: 475px;
+	background-position: center;
+	background-image: url(../img/003.jpg);
+	background-repeat: no-repeat;
+}
+
+.content .fff {
+	position: relative;
+	left: -180px;
+	top: -435px;
+	width: 346px;
+	height: 357px;
+	float: right;
+	background-color: white;
+}
+
+.content .fff form {
+	padding-left: 20px;
+	padding-top: 20px;
+	width: 306px;
+	height: 250px;
+}
+
+.content .fff .jdhy {
+	font-size: 20px;
+	color: #666;
+	font-family: "宋体";
+}
+
+.content .fff .ljzc {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #b61d1d;
+	float: right;
+	line-height: 20px;
+}
+
+.content .fff .xuebi02 {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background: url(../img/JDLOGIN.png) -104px -75px;
+	float: right;
+	position: relative;
+	top: 2px;
+}
+
+.content .fff .diushi {
+	border: solid 1px #ffe57d;
+	background-color: #fff6d2;
+	width: 304px;
+	height: 24px;
+	margin-top: 12px;
+}
+
+.content .fff .diushi label {
+	display: inline-block;
+	line-height: 24px;
+	font-size: 12px;
+	font-family: "宋体";
+	color: #666;
+}
+
+.content .fff .diushi .gg {
+	padding-left: 27px;
+	position: relative;
+	top: -5px;
+}
+
+.content .fff .diushi .xuebi03 {
+	display: inline-block;
+	width: 12px;
+	height: 16px;
+	margin-left: 10px;
+	margin-top: 5px;
+	background: url(../img/JDLOGIN.png) -104px -23px;
+}
+
+.biaodan {
+	width: 306px;
+	height: 200px;
+	/*border: solid 1px red;*/
+}
+
+.biaodan .d0 input {
+	width: 265px;
+	height: 38px;
+	border: none;
+	float: right;
+}
+
+.biaodan .d1 {
+	width: 304px;
+	height: 38px;
+	margin-top: 20px;
+	border: solid 1px #bdbdbd;
+}
+
+.biaodan .d1 .l1 {
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	border-right: solid 1px #bdbdbd;
+	background: url(../img/JDLOGIN.png);
+}
+
+.biaodan .d2 {
+	width: 304px;
+	height: 38px;
+	/* float: right; */
+	margin-top: 20px;
+	border: solid 1px #bdbdbd;
+}
+
+.biaodan .d2 .l2 {
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	border-right: solid 1px #bdbdbd;
+	background: url(../img/JDLOGIN.png) -48px 0px;
+}
+
+.biaodan .d3 {
+	position: relative;
+	/* top: 23px; */
+	font-family: "宋体";
+	color: #666;
+	font-size: 12px;
+}
+/* .d3 input{
+	float: left;
+}
+.d3 label{
+	display: block;
+	float: left;
+}
+.d3 a {
+	float: right;
+	color: #666;
+} */
+.biaodan .d4 input {
+	width: 304px;
+	height: 31px;
+	position: relative;
+	margin-left: 20px;
+	background-color: #e4393c;
+}
+
+.biaodan .d4 {
+	position: relative;
+	bottom: 20px;
+}

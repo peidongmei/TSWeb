@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.head {
+	width: 1200px;
+	height: 80px;
+	border: solid 1px black;
+	margin: 20px auto;
+	position: relative;
+}
+
+.head .xuebi {
+	float: left;
+	margin-left: 80px;
+	margin-top: 17px;
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	background: url(logo.gif);
+}
+
+.head span {
+	position: relative;
+	left: 28px;
+	line-height: 80px;
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-size: 24px;
+}
+
+.clearFix:AFTER {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+body {
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-size: 15px;
+}
+
+.content {
+	border: 1px solid black;
+	width: 1200px;
+	height: 700px;
+	margin: 30px auto;
+}
+
+.content .menu {
+	font-size: 20px;
+	width: 100px;
+	float: left;
+	margin-left: 30px;
+	padding: auto 50px;
+}
+
+.content .menu ul li {
+	list-style-type: none;
+}
+
+.content span {
+	color: #FF4200;
+}
+
+.content a {
+	color: cornflowerblue;
+}
+
+/* .content iframe {
+	float: right;
+	border:solied 1px red;
+	width:600px;
+	height:500px
+	margin-right:100px;
+	border :none;
+	
+
+} */
+.func {
+	float: right;
+	width: 800px;
+	height: 600px
+}
+
+.func iframe {
+	border: none;
+	width: 800px;
+	height: 100%;
+}

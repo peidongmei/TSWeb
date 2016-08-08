@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.ITeachresourceDao">
+	<cache />
+	<!--教师增加一个资源 -->
+	<insert id="upload" parameterType="Teachresource">
+		insert into teachresource
+		(resno,resname,oldname,restype,ressubno,resupdate,resteachno)
+		values(seq_resno.nextval,#{resname},#{oldname} ,#{restype}
+		,#{ressubno} ,sysdate,#{resteachno} )
+	</insert>
+	<!-- 学生按学科和类型查询资源 -->
+	<select id="typesubjectres" parameterType="Teachresource"
+		resultType="Teachresource">
+		select resno,oldname,restype,ressubno,resupdate from teachresource where
+		restype=#{restype}
+		and ressubno=#{ressubno}
+	</select>
+	<!-- 教师查询资源 并列表显示 仅显示当前教师上传的所有资源 -->
+	<select id="queryteachresource" parameterType="Teachresource"
+		resultType="Teachresource">
+		select resno,oldname,restype,ressubno,resupdate from teachresource where
+		resteachno=#{resteachno}
+	</select>
+
+
+	<!-- 资源信息下载查询 -->
+	<select id="downquery" parameterType="Teachresource" resultType="Teachresource">
+		select oldname,resname from teachresource where resno=#{resno}
+	</select>
+
+	<!--资源信息更新1 -->
+	<select id="resUpdate1" parameterType="Teachresource"
+		resultType="Teachresource">
+		select resno,oldname from teachresource where resno= #{resno}
+	</select>
+
+	<!-- 资源信息更新2 -->
+	<update id="resUpdate2" parameterType="Teachresource">
+		update teachresource
+		set oldname= #{oldname} where resno= #{resno}
+	</update>
+
+	<!-- 删除一行资源 -->
+	<delete id="teachresourcedelete">
+		delete from teachresource where resno= #{resno}
+	</delete>
+
+</mapper>

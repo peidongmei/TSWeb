@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.IStudentDao">
+
+	<cache />
+	<insert id="saveStudent" parameterType="Student">
+		insert into student
+		(stuno,stunickname,stupwd,stuname,stusex,stuinsti,stupermlevel,stumail)
+		values
+		(seq_stuno.nextval,#{stunickname},#{stupwd},#{stuname},#{stusex},#{stuinsti},#{stupermlevel},#{stumail})
+	</insert>
+
+	<select id="login" parameterType="Student" resultType="Student">
+		select
+		stuno,stunickname from student where stunickname=#{stunickname}and
+		stupwd=#{stupwd}
+	</select>
+	<!-- stuno,stunickname ,stupwd ,stuname ,stusex,stuinsti,stupermlevel,stumail -->
+	<!--学生自我信息更新 -->
+	<select id="studentUpdate1" parameterType="int" resultType="Student">
+		select stuno,stunickname,stupwd,stuname,stusex,stuinsti,stumail from
+		student where stuno= #{stuno}
+	</select>
+	<!-- 学生自我信息更新2 -->
+	<update id="studentUpdate2" parameterType="Student">
+		update student set stunickname= #{stunickname}, stupwd= #{stupwd} ,stuname =
+		#{stuname}, stusex= #{stusex}, stuinsti= #{stuinsti},stumail=
+		#{stumail} where stuno= #{stuno}
+	</update>
+	<!-- 学生信息列表查询 -->
+	<select id="querystudent" parameterType="Student" resultType="Student">
+		select stuno,stuname,stupermlevel,stuinsti from student
+	</select>
+
+	<!-- 删除一行学生 -->
+	<delete id="studentdelete">
+		delete from student where stuno= #{stuno}
+	</delete>
+</mapper>

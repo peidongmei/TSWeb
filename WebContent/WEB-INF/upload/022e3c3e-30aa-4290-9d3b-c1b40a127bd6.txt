@@ -1,0 +1,15 @@
+
+数据库连接配置在 webroot\web-inf\applicationContext.xml 中，可自行修改。具体代码如下：
+<property name="password" value="sa"></property>
+
+在IE中输入：http://localhost:8080/teaPingjia/  即可打开首页
+管理员名：a
+密码：a
+
+
+
+
+ 
+
+
+

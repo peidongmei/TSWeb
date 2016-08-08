@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.IAnswerDao">
+	<cache />
+	<!-- 问题提交2 提交到answer表里面 -->
+	<insert id="teacherAnswer" parameterType="Answer">
+		insert into answer
+		(answerno,answertitle,answerque,answerstuno,answerteachno,answerdetail,answerdate)
+		values
+		(seq_answerno.nextval,#{answertitle},#{answerque},#{answerstuno},#{answerteachno},#{answerdetail},sysdate)
+	</insert>
+
+	<!-- 带答案的问题 列表查询 -->
+	<select id="queryanswer" parameterType="Answer" resultType="Answer">
+		select answerno,answertitle,answerdate from answer
+	</select>
+	<!-- 删除一个带答案的问题 -->
+	<delete id="answerDelete">
+		delete from answer where answerno= #{answerno}
+	</delete>
+	<!-- 已经解答的问题在前台列表显示 -->
+	<select id="queryanswer2" parameterType="Answer" resultType="Answer">
+		select answerno,answertitle,answerdate,answerteachno from answer
+	</select>
+	<!-- 替代queryanswer2，实现了前台教师名字的显示 -->
+	<select id="queryanswer3" parameterType="Answer" resultMap="answer">
+		select answerno,answertitle,answerdate,answerteachno,teachname from
+		answer
+		a,teacher b
+		where a. answerteachno=b.teachno
+	</select>
+	<resultMap type="com.igeek11.bishe.bean.Answer" id="answer">
+		<result column="answerno" property="answerno" />
+		<result column="answertitle" property="answertitle" />
+		<result column="answerdate" property="answerdate" />
+		<result column="answerteachno" property="answerteachno" />
+		<association property="teacher" javaType="com.igeek11.bishe.bean.Teacher">
+			<result column="teachname" property="teachname" />
+		</association>
+	</resultMap>
+
+
+	<!-- 问题附带答案的详细显示 -->
+	<select id="answerDisplay" parameterType="int" resultType="Answer">
+		select answertitle,answerque,answerdetail,answerdate from answer where
+		answerno=#{answerno}
+	</select>
+</mapper>

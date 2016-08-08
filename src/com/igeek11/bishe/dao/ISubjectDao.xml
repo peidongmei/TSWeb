@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek11.bishe.dao.ISubjectDao">
+	<cache />
+	<!-- 学科列表显示 -->
+	<select id="subjectDisplayList" parameterType="Subject"
+		resultType="Subject">
+		select subno,subname,subdetail from subject
+	</select>
+
+</mapper>
